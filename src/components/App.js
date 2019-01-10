@@ -1,17 +1,18 @@
 import React from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 import StreamIndex from '../streams/StreamIndex';
 import StreamShow from '../streams/StreamShow';
+import history from '../actions/history';
 
 
 const App = () => {
     return <div>
-        <BrowserRouter>
+        <Router history={history}>
             <div>
             <Route path="/" exact component={StreamIndex} />
-            <Route path="/stream" exact component={StreamShow} />
+            <Route path="/streams/show/:id" exact component={StreamShow} />
             </div>
-        </BrowserRouter>
+        </Router>
     </div>;
 }
 

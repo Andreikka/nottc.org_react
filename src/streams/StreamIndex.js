@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchStreams } from '../actions';
 import Slider from "react-slick";
 class StreamIndex extends Component {
@@ -25,7 +26,7 @@ class StreamIndex extends Component {
                 
                 <div key={stream.id}>
                        
-                       <img src={stream.image_thumb}></img> 
+                       <img src={stream.image_thumb} alt=""></img> 
                 </div>
             );
         });
@@ -55,7 +56,7 @@ class StreamIndex extends Component {
                 <div className="container ps11" style={slideOptions}>
                 
                     <div className="col box-details home-details">
-                      <img style={{width:'12%'}} src={stream.network_img} />
+                      <img style={{width:'12%'}} src={stream.network_img} alt=""/>
     				  					<h2 class="stream_title bold"> {stream.title}</h2>
     					  				<div class="subtitle">
     					  					<p>{stream.show_slogan}</p>
@@ -63,7 +64,7 @@ class StreamIndex extends Component {
     					  				</div>
     					  				<div className="row">
     										<div className="col">
-    											<a href={`/stream/${stream.id}`} className="btn btn-custom-green ">More</a>
+    											<Link to={`/streams/show/${stream.id}`} className="btn btn-custom-green ">More</Link>
                           <div className="subtitle defaultsub uppercase bold">
                          Trending NOW
                         </div>
@@ -82,6 +83,25 @@ class StreamIndex extends Component {
 
 
     render() {
+        const settings = {
+            customPaging: function(i) {
+                return (
+                  <a href="/stream/1">
+                    <img src={`/images/thumb.png`} alt=""/>
+                  </a>
+                );
+              },
+            dots: true,
+            dotsClass: "slick-dots slick-thumb",
+            arrows: true,
+            infinite: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,  
+            autoplay: true,
+            speed: 400,
+            autoplaySpeed: 3000,
+            cssEase: "linear",
+          };
         return (
             
             <div className="slide">
@@ -90,10 +110,10 @@ class StreamIndex extends Component {
 	<div className="container">
 		<div className="row">
 			<div className="col-md-6 text-left">
-				<a href="https://www.nottc.org/index.php"><img src="images/nottc-logo-noshadow.png" className="img-fluid"/></a><br />
+				<a href="https://www.nottc.org/index.php"><img src="images/nottc-logo-noshadow.png" className="img-fluid" alt=""/></a><br />
 			</div>
 			<div className="col-md-6 text-right">
-				<a id="hamburger-icon" href="#" title="Menu">
+				<a id="hamburger-icon" href="/" title="Menu">
 				  <span className="line line-1"></span>
 				  <span className="line line-2"></span>
 				  <span className="line line-3"></span>
@@ -112,25 +132,9 @@ class StreamIndex extends Component {
 	</div>
 </div>
 
-<Slider
-          asNavFor={this.state.nav2}
-          ref={slider => (this.slider1 = slider)}
-          autoplay={true}
-          initialSlide={0}
-        >
+<Slider {... settings}>
         {this.streamsList()}
-        </Slider>
-       
-        <Slider
-          asNavFor={this.state.nav1}
-          ref={slider => (this.slider2 = slider)}
-          slidesToShow={3}
-          swipeToSlide={true}
-          focusOnSelect={true}
-          initialSlide={0}
-        >
-          {this.thumbList()}
-        </Slider>
+</Slider>
 
 </div>
         
