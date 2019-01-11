@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from 'react-redux';
 import { fetchStream } from '../actions';
 import NavMenu from '../streams/nav';
+import Slider from "react-slick"; 
+
 
 class StreamShow extends React.Component {
 
@@ -9,18 +11,54 @@ class StreamShow extends React.Component {
     this.props.fetchStream(this.props.match.params.id);
   }
 
+  
+
   render() {
     var col_settings = {
       paddingTop:'350px'
     }
+    var settings = {
+      dots: false,
+      infinite: false,
+      speed: 500,
+      slidesToScroll: 1,
+      slidesToShow: 3, 
+   
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            initialSlide: 1
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    };
     if (!this.props.stream) {
       return <div className="loader"></div>
     }
     return <div>
        <div className="container-fluid">
     <div className="row">
-      <div className="col box-top" style={{height:'100vh', backgroundImage: 'url(' + this.props.stream.image_poster + ')',backroundSize: 'cover',backgroundPosition: 'center center'}}>
-        <div className="bg_dark"></div>
+      <div className="col box-top" style={{height:'100%', backgroundImage: 'url(' + this.props.stream.image_poster + ')',backroundSize: 'fixed',backgroundPosition: 'center top'}}>
+        <div className="bg_dark2"></div>
         <div className="container">
 
           <NavMenu />
@@ -37,12 +75,69 @@ class StreamShow extends React.Component {
                   <div class="row">
                 <div class="col">
                   <a href="/" class="btn btn-custom-green ">DVR This NOW</a>
+
+                    
+                  
                   </div>
                   </div>
+                  <Slider {...settings}>
+          <div>
+          <a class="episode-link" href="/" tabindex="0">
+                          <img class="img-responsive" src="images/episode1.png" alt="" />
+                          <h2 class="episode-title" style={{position: 'relative'}}>The Locomotion Interruption</h2>
+                        </a>
+          </div>
+          <div>
+          <a class="episode-link" href="/" tabindex="0">
+                          <img class="img-responsive" src="images/episode1.png" alt="" />
+                          <h2 class="episode-title" style={{position: 'relative'}}>The Locomotion Interruption</h2>
+                        </a>
+          </div>
+          <div>
+          <a class="episode-link" href="/" tabindex="0">
+                          <img class="img-responsive" src="images/episode1.png" alt="" />
+                          <h2 class="episode-title" style={{position: 'relative'}}>The Locomotion Interruption</h2>
+                        </a>
+          </div>
+          <div>
+          <a class="episode-link" href="/" tabindex="0">
+                          <img class="img-responsive" src="images/episode1.png" alt="" />
+                          <h2 class="episode-title" style={{position: 'relative'}}>The Locomotion Interruption</h2>
+                        </a>
+          </div>
+          <div>
+          <a class="episode-link" href="/" tabindex="0">
+                          <img class="img-responsive" src="images/episode1.png" alt="" />
+                          <h2 class="episode-title" style={{position: 'relative'}}>The Locomotion Interruption</h2>
+                        </a>
+          </div>
+          <div>
+          <a class="episode-link" href="/" tabindex="0">
+                          <img class="img-responsive" src="images/episode1.png" alt="" />
+                          <h2 class="episode-title" style={{position: 'relative'}}>The Locomotion Interruption</h2>
+                        </a>
+          </div>
+        </Slider>
 
-
-
-fdf
+        <div class="clips-extras" style={{position: 'relative'}}>
+                    <div class="uppercase bold about-text custom-title">
+                      Clips &amp; Extras
+                    </div>
+        <Slider {...settings}>
+        <div>
+          <a class="episode-link" href="/" tabindex="0">
+                          <img class="img-responsive" src="images/episode1.png" alt="" />
+                          <h2 class="episode-title" style={{position: 'relative'}}>The Locomotion Interruption</h2>
+                        </a>
+          </div>
+          <div>
+          <a class="episode-link" href="/" tabindex="0">
+                          <img class="img-responsive" src="images/episode1.png" alt="" />
+                          <h2 class="episode-title" style={{position: 'relative'}}>The Locomotion Interruption</h2>
+                        </a>
+          </div>
+        </Slider>
+        </div>
         </div>
       </div>
       </div>

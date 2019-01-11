@@ -86,13 +86,6 @@ class StreamIndex extends Component {
     render() {
         
         const settings = {
-            customPaging: function(i) {
-                return (
-                  <a href="/stream/1">
-                    <img src={`/images/thumb.png`} alt=""/>
-                  </a>
-                );
-              },
             dots: true,
             dotsClass: "slick-dots slick-thumb",
             arrows: true,
