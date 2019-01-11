@@ -22,7 +22,7 @@ class StreamShow extends React.Component {
       infinite: false,
       speed: 500,
       slidesToScroll: 1,
-      slidesToShow: 3, 
+      slidesToShow: 4, 
    
       responsive: [
         {
@@ -80,6 +80,7 @@ class StreamShow extends React.Component {
                   
                   </div>
                   </div>
+                  <div className="episodesshow select-season">
                   <Slider {...settings}>
           <div>
           <a class="episode-link" href="/" tabindex="0">
@@ -118,11 +119,12 @@ class StreamShow extends React.Component {
                         </a>
           </div>
         </Slider>
-
+</div>
         <div class="clips-extras" style={{position: 'relative'}}>
                     <div class="uppercase bold about-text custom-title">
                       Clips &amp; Extras
                     </div>
+                    
         <Slider {...settings}>
         <div>
           <a class="episode-link" href="/" tabindex="0">
@@ -137,6 +139,7 @@ class StreamShow extends React.Component {
                         </a>
           </div>
         </Slider>
+
         </div>
         </div>
       </div>

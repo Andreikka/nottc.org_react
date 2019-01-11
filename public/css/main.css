@@ -880,5 +880,13 @@ a:hover, a:focus {
 	0% { transform: rotate(0deg); }
 	100% { transform: rotate(360deg); }
   }
+  @media screen and (min-width: 1900px) {
+  .episodesshow .slick-slider {
+	  width: 1500px;
+  }
 
-  
+  .episodesshow .slick-next {
+	  right: 300px;
+  }
+
+}
