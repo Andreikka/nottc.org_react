@@ -3,8 +3,9 @@ import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchStreams } from '../actions';
 import Slider from "react-slick";
-import NavMenu from '../streams/nav';
+import NavMenu from '../streams/nav'; 
 class StreamIndex extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -12,6 +13,7 @@ class StreamIndex extends Component {
           nav2: null
         };
       }
+
     componentDidMount() {
         this.props.fetchStreams();
         this.setState({
@@ -32,7 +34,6 @@ class StreamIndex extends Component {
             );
         });
     }
-    
 
     streamsList() {
         
@@ -85,27 +86,47 @@ class StreamIndex extends Component {
 
     render() {
         
-        const settings = {
-            dots: true,
-            dotsClass: "slick-dots slick-thumb",
-            arrows: true,
-            infinite: false,
-            slidesToShow: 1,
-            slidesToScroll: 1,  
-            autoplay: true,
-            speed: 400,
-            autoplaySpeed: 3000,
-            cssEase: "linear",
-          };
         return (
             
             <div className="slide">
             
                  <NavMenu />
 
-<Slider {... settings}>
-        {this.streamsList()}
-</Slider>
+                 <Slider
+          asNavFor={this.state.nav2}
+          ref={slider => (this.slider1 = slider)}
+          arrows={false}
+          infinite={false}
+          slidesToScroll= {1}
+          initialSlide={1}
+        >
+            {this.streamsList()}
+        </Slider>
+      
+      <div class="container-fluid" >
+            <div class="row">
+        <div class="container">
+        <div style={{marginTop:'-150px'}}>
+        <Slider
+          asNavFor={this.state.nav1}
+          ref={slider => (this.slider2 = slider)}
+          slidesToShow={3}
+          slidesToScroll={1}
+          swipeToSlide={true}
+          focusOnSelect={true}
+          infinite={false}
+          arrows={true}
+          initialSlide={1}
+        >   
+        {this.thumbList()}
+
+        </Slider>
+        </div>
+        </div>
+        </div>
+        </div>
+
+     
 
 </div>
         
