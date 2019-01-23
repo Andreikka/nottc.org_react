@@ -15,7 +15,7 @@ class StreamShow extends React.Component {
 
   render() {
     var col_settings = {
-      paddingTop:'350px',
+      paddingTop:'380px',
       position: 'relative'
     }
     if (!this.props.stream) {
@@ -29,9 +29,9 @@ class StreamShow extends React.Component {
   <div className="row">
   
 
-    <div className="col box-top" style={{backgroundPosition:'center top', backgroundSize:'contain',backgroundImage : 'linear-gradient(rgba(20,20,20, .3), rgba(20,20,20, .3)), url(' + this.props.stream.image_poster + ')' , backgroundRepeat: 'no-repeat', backgroundColor: '#011627'}}>
+    <div className="col box-top" style={{backgroundPosition:'center top', backgroundSize:'cover',backgroundImage : 'linear-gradient(to top, rgba(1,22,39,1), rgba(1, 22, 39,0.3) 50%, rgba(1, 22, 39,.2)), url(' + this.props.stream.image_poster + ')' , backgroundRepeat: 'no-repeat', backgroundColor: '#011627'}}>
     <div className="container">
-        {/* <NavMenu /> */}
+        <NavMenu />
 <div className="box-details home-details" style={col_settings} >
                     <img src={this.props.stream.network_img} alt=""/>
                       <h2 className="stream_title bold"> {this.props.stream.title}</h2>
@@ -43,28 +43,35 @@ class StreamShow extends React.Component {
 
                 <a href="/" className="btn btn-custom-green ">DVR This NOW</a>
                   
-                
-             
-            
                 <div className="episodesshow select-season" style={{position:'relative'}}>
                
-<PopularSeries />
+               <PopularSeries />
+               
+               </div>
+             
+            
+          
+    </div>
+    </div>
 
-</div>
-      <div className="clips-extras" style={{position: 'relative'}}>
-                  <div class="uppercase bold about-text custom-title">
-                    Clips &amp; Extras
-                  </div>
-          <div className="Sliderr">      
-          <PopularSeries />
-</div>  
-
-    </div>
-    </div>
-    </div>
-    </div>   
-    </div>
     
+    </div>   
+        
+    </div>
+    <div className="container-fluid" style={{backgroundColor: '#011627',paddingBottom:'30px'}}>
+                <div className="container">
+                
+                     <div className="clips-extras" style={{position: 'relative'}}>
+                                 <div class="uppercase bold about-text custom-title">
+                                   Clips &amp; Extras
+                                 </div>
+                         <div className="Sliderr">      
+                         <PopularSeries />
+               </div>  
+               
+                   </div>
+                </div>
+        </div>
 
 
     <div className="container-fluid show-desc">

@@ -1,7 +1,14 @@
 import streams from '../apis/streams';
 import popular_series from '../apis/streams';
 import history from './history';
-import { FETCH_STREAMS, FETCH_STREAM, FETCH_POPULAR_SERIES, FETCH_POPULAR_SERIAL } from './types';
+import { FETCH_STREAMS, FETCH_STREAM, FETCH_POPULAR_SERIES, FETCH_POPULAR_SERIAL, SELECTED_SEASON } from './types';
+
+export const selectSeason = season => {
+    return  {
+        type: 'SELECTED_SEASON',
+        payload: season
+    }
+} 
 
 
 export const fetchStreams = () => async dispacth => {
