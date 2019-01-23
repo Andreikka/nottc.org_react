@@ -3,6 +3,7 @@ body{
 	 font-size: 20px;
 	 font-weight: 500;
 	 color: #fff;
+	
 }
 .btn-custom-green{
 		border-radius: 60px;
@@ -190,8 +191,7 @@ a:hover, a:focus {
 
 /*custom style*/
 .box-details{
-	vertical-align: middle;
-	text-align: middle;
+	
 	color:#fff;
 	font-size: 20px;
 }
@@ -252,11 +252,6 @@ a:hover, a:focus {
 .box-details .details{
 	font-size: 20px;
 	padding: 50px 0px;
-}
-.box-top{
-	background-image:url('images/kidding.png');
-	background-position: center;
-	background-size:cover;
 }
 
 .box-detail {
@@ -543,7 +538,8 @@ a:hover, a:focus {
 }
 /*footer*/
 .footer{
-	
+	padding-top: 20px;
+	padding-bottom: 20px;
 	background-color: #011627;
 	font-size: 17px;
 	color: #fff;
@@ -810,7 +806,6 @@ a:hover, a:focus {
 
 .select-season {
 	margin-top:20px;
-	margin-left: -20px;
 }
 
 .episode-title {
@@ -887,13 +882,47 @@ a:hover, a:focus {
 	0% { transform: rotate(0deg); }
 	100% { transform: rotate(360deg); }
   }
-  @media screen and (min-width: 1900px) {
-  .episodesshow .slick-slider {
-	  width: 1500px;
-  }
+ 
 
-  .episodesshow .slick-next {
-	  right: 300px;
-  }
+.imageThumbs .slick-current{
+	padding:8px;
+	border-radius: 10px;
+	background-color: #fff;
+}
 
+.select_season {
+	background: none;
+	font-size: 40px;
+	color: #fff;
+	font-weight: bold;
+	text-transform: uppercase;
+	border:none;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	padding-top: 15px;
+	padding-left: 30px;
+	padding-bottom:15px;
+	padding-right: 50px;
+	cursor: pointer;
+}
+
+.select_season:focus {
+	background: #fc8b20;
+	outline: none;
+	background-image: linear-gradient(to left, #f67225, #fc8b20);
+	
+}
+
+.select_season option {
+	font-size: 12px;
+}
+
+.select_season option {
+	outline: none;
+	border: none !important;
+}
+
+.select_season option:last-child {
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
 }

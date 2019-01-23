@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchStreams } from '../actions';
+import PopularSerials from '../streams/PopularSeries'; 
 import Slider from "react-slick";
 import NavMenu from '../streams/nav'; 
 class StreamIndex extends Component {
@@ -126,7 +127,7 @@ class StreamIndex extends Component {
         </div>
         </div>
 
-     
+<PopularSerials />
 
 </div>
         

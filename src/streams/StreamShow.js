@@ -1,117 +1,70 @@
-import React, {Component} from "react";
+import React from "react";
 import { connect } from 'react-redux';
 import { fetchStream } from '../actions';
-// import PopularSerials from '../streams/PopularSeries'; 
 import NavMenu from '../streams/nav';
-import Slider from "react-slick"; 
+import PopularSeries from '../streams/page';
 
 
-class StreamShow extends Component {
+class StreamShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchStream(this.props.match.params.id);
   }
 
-
+  
 
   render() {
     var col_settings = {
-      paddingTop:'350px'
+      paddingTop:'350px',
+      position: 'relative'
     }
-    var settings = {
-      dots: false,
-      infinite: false,
-      speed: 500,
-      slidesToScroll: 1,
-      slidesToShow: 4, 
-   
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            initialSlide: 1
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
-    };
-    if (!this.props.stream ||  this.props.PopularSeries) {
+    if (!this.props.stream) {
       return <div className="loader">
         
       </div>
       
     }
     return <div>
-       <div className="container-fluid">
-    <div className="row">
-      <div className="col box-top" style={{height:'100%', backgroundImage: 'url(' + this.props.stream.image_poster + ')',backroundSize: 'fixed',backgroundPosition: 'center top'}}>
-        <div className="bg_dark2"></div>
-        <div className="container">
+      <div className="container-fluid">
+  <div className="row">
+  
 
-          <NavMenu />
-
-<div className="col box-details home-details" style={col_settings}>
-                      <img src={this.props.stream.network_img} alt=""/>
-    				  					<h2 className="stream_title bold"> {this.props.stream.title}</h2>
-    					  				<div className="subtitle">
-    					  					<p>{this.props.stream.show_slogan}</p>
-                          <p>{this.props.stream.show_date}</p>
-    					  				</div>
-                  </div>
-
-                  <div className="row">
-                <div className="col">
-                  <a href="/" className="btn btn-custom-green ">DVR This NOW</a>
-
-                    
-                  
-                  </div>
-                  </div>
-                  <div className="episodesshow select-season">
-                 
+    <div className="col box-top" style={{backgroundPosition:'center top', backgroundSize:'contain',backgroundImage : 'linear-gradient(rgba(20,20,20, .3), rgba(20,20,20, .3)), url(' + this.props.stream.image_poster + ')' , backgroundRepeat: 'no-repeat', backgroundColor: '#011627'}}>
+    <div className="container">
+        {/* <NavMenu /> */}
+<div className="box-details home-details" style={col_settings} >
+                    <img src={this.props.stream.network_img} alt=""/>
+                      <h2 className="stream_title bold"> {this.props.stream.title}</h2>
+                      <div className="subtitle">
+                        <p>{this.props.stream.show_slogan}</p>
+                        <p>{this.props.stream.show_date}</p>
+                      </div>
 </div>
-        <div className="clips-extras" style={{position: 'relative'}}>
-                    <div class="uppercase bold about-text custom-title">
-                      Clips &amp; Extras
-                    </div>
-            <div className="Sliderr">      
-        <Slider {...settings}>
-        <div className="slides">
-          <a className="episode-link" href="/">
-                          <img className="img-responsive" src="images/episode1.png" alt="" />
-                          <h2 className="episode-title" style={{position: 'relative'}}>The Locomotion Interruption</h2>
-                        </a>
-          </div>
-          <div className="slides">
-          <a className="episode-link" href="/">
-                          <img className="img-responsive" src="images/episode1.png" alt="" />
-                          <h2 className="episode-title" style={{position: 'relative'}}>The Locomotion Interruption</h2>
-                        </a>
-          </div>
-        </Slider>
+
+                <a href="/" className="btn btn-custom-green ">DVR This NOW</a>
+                  
+                
+             
+            
+                <div className="episodesshow select-season" style={{position:'relative'}}>
+               
+<PopularSeries />
+
+</div>
+      <div className="clips-extras" style={{position: 'relative'}}>
+                  <div class="uppercase bold about-text custom-title">
+                    Clips &amp; Extras
+                  </div>
+          <div className="Sliderr">      
+          <PopularSeries />
 </div>  
-        </div>
-        </div>
-      </div>
-      </div>
+
     </div>
+    </div>
+    </div>
+    </div>   
+    </div>
+    
 
 
     <div className="container-fluid show-desc">
@@ -146,9 +99,7 @@ class StreamShow extends Component {
               <div className="uppercase bold about-text custom-title">
                 POPULAR SERIES TO CHECK OUT
               </div>
-          
-            
-
+              <PopularSeries />
               </div>
               </div>
               </div>
@@ -170,15 +121,16 @@ class StreamShow extends Component {
             </div>
           </div>
         </div>
-      </div>
+      </div>  
     </div>
               </div>
 
            
   </div>
-  
   };
 };
+
+
 
 const mapStateToProps = (state, ownProps) => {
   return { stream: state.streams[ownProps.match.params.id]};

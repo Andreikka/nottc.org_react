@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { PopularSeries } from '../actions';
-
+import Slider from "react-slick";
 class PopularSerials extends Component {
     componentDidMount() {
         this.props.PopularSeries();
@@ -31,7 +31,7 @@ class PopularSerials extends Component {
         return (
             
           <div>
-        {this.thumbsList()}
+      <Slider>  {this.thumbsList()}</Slider>
 </div>
         
         )

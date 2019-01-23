@@ -20,7 +20,7 @@ const NavMenu = () => {
 </div>
 <div className="row menu-links"> 
 <div className="col-md-12 text-right">
-      <Link to="https://www.nottc.org/index.php" className="active">Home</Link>
+      <Link to="/" className="active">Home</Link>
       <a href="https://www.nottc.org/ott_rights.php" className="">Ott rights</a>
       <a href="https://www.nottc.org/use_cases.php" className="">Use cases</a>
       <a href="https://www.nottc.org/partners.php" className="">Partners</a>

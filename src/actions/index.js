@@ -24,4 +24,5 @@ export const PopularSeries = () => async dispacth => {
 export const PopularSerial = (id) => async dispacth => {
     const response = await popular_series.get(`/popular_series/${id}`);
     dispacth({ type: FETCH_POPULAR_SERIES, payload: response.data });
+    
 }
