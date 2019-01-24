@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "react-slick"; 
 
-class PopularSeries extends React.Component {
+class Seasons extends React.Component {
 
 constructor() {
     super();
@@ -12,12 +12,11 @@ constructor() {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/popular_series')
+    fetch('http://localhost:3001/streams/1')
     .then(res => res.json())
     .then(json => {
         this.setState({
             isLoaded: true,
-            popular_series: json,
             seasons: json,
             seasonone: json
         })
@@ -61,24 +60,21 @@ constructor() {
         ]
       };
 
-      var {isLoaded, popular_series} = this.state;
+      var {isLoaded, seasons} = this.state;
       if(!isLoaded) {
         return <div>Loading....</div>
       }else {
           return (
               <div>
-                  <Slider {...settings}>
-                      {popular_series.map(item => ( 
+                 
+                      {seasons.map(item => ( 
                         <div key={item.id} className="slides">
-          <a className="episode-link" href="/">
-                          <img className="img-responsive" src={item.image_thumb} alt="" />
+        
                           <h2 className="episode-title" style={{position: 'relative'}}>{item.title}</h2>
-                        </a>
           </div>
                       ))}
                       
                       
-                 </Slider>
               </div>
           )
       }
@@ -90,4 +86,4 @@ constructor() {
 
 
 
-export default PopularSeries;
+export default Seasons;

@@ -806,6 +806,7 @@ a:hover, a:focus {
 
 .select-season {
 	margin-top:20px;
+	padding-bottom: 20px;
 }
 
 .episode-title {
@@ -926,3 +927,95 @@ a:hover, a:focus {
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 }
+
+.css-vj8t7z {
+	background: none !important;
+	border: 0 !important;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	padding-left: 15px;
+	border-top-left-radius: 10px !important;
+	border-radius: 0px !important;
+
+}
+
+.css-xp4uvy {
+	color :#fff !important;	
+	font-size:40px;
+	font-weight: bold;
+	text-transform: uppercase;
+	border-radius: 0px !important;
+	
+}
+
+.css-2o5izw {
+	background: #fc8b20;
+	outline: none;
+	background-image: linear-gradient(to left, #f67225, #fc8b20);
+	padding-top: 25px;
+	padding-bottom: 25px;
+	padding-left: 15px;
+	border-top-left-radius: 10px;
+	
+}
+
+.css-1wy0on6 {
+	display: none !important;
+}
+
+.css-2o5izw { 
+	border-color: none !important;
+	box-shadow: none !important;
+	border-width: 0 !important;
+}
+
+.css-2o5izw:hover {
+	border-color:none !important
+}
+
+.css-d8oujb {
+	display: none;
+}
+
+.css-19bqh2r {
+	color: #fff;
+}
+
+.css-15k3avv {
+	background: #fc8b20;
+	outline: none;
+	background-image: linear-gradient(to left, #f67225, #fc8b20);
+	margin-top: -5px !important;
+	box-shadow: none !important;
+	border-bottom-right-radius: 10px !important;
+	border-top-right-radius: 0px !important;
+	border-bottom-left-radius: 10px !important;
+	border-top-left-radius: 0px !important;
+	overflow: hidden;
+}
+
+/* width */
+.css-15k3avv ::-webkit-scrollbar {
+	width: 4px;
+  }
+  
+  /* Track */
+.css-15k3avv ::-webkit-scrollbar-track {
+	background: none; 
+  }
+   
+  /* Handle */
+  .css-15k3avv ::-webkit-scrollbar-thumb {
+	background: #212529; 
+	width: 3px;
+  }
+  
+  /* Handle on hover */
+  .css-15k3avv ::-webkit-scrollbar-thumb:hover {
+	background: #555; 
+  }
+
+  .dropdown {
+	  margin-bottom: 20px;
+	  margin-left: -35px;
+  }

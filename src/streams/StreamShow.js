@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { fetchStream } from '../actions';
 import NavMenu from '../streams/nav';
 import PopularSeries from '../streams/page';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Dropdown from "./dropdown";
 
 class StreamShow extends React.Component {
 
@@ -44,6 +45,10 @@ class StreamShow extends React.Component {
                 <a href="/" className="btn btn-custom-green ">DVR This NOW</a>
                   
                 <div className="episodesshow select-season" style={{position:'relative'}}>
+
+               <div className="dropdown">
+               <Dropdown />
+               </div> 
                
                <PopularSeries />
                
@@ -84,7 +89,7 @@ class StreamShow extends React.Component {
               </div>
 
               <div className="about-subtext">
-                TV-14 | 12 SEASONS | Comedy , Romance
+                TV-14 | 12 SEASONS | Comedy , Romance <FontAwesomeIcon icon="igloo" />
               </div>
 
               <div className="about-story" style={{color: '#fff'}}>

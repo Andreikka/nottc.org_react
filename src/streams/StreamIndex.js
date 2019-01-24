@@ -127,8 +127,6 @@ class StreamIndex extends Component {
         </div>
         </div>
 
-<PopularSerials />
-
 </div>
         
         )
