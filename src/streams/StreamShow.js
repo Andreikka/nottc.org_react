@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchStream } from '../actions';
 import NavMenu from '../streams/nav';
 import PopularSeries from '../streams/page';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Seasons from '../streams/seasons';
 import Dropdown from "./dropdown";
 
 class StreamShow extends React.Component {
@@ -50,7 +50,7 @@ class StreamShow extends React.Component {
                <Dropdown />
                </div> 
                
-               <PopularSeries />
+               <Seasons />
                
                </div>
              
@@ -89,7 +89,7 @@ class StreamShow extends React.Component {
               </div>
 
               <div className="about-subtext">
-                TV-14 | 12 SEASONS | Comedy , Romance <FontAwesomeIcon icon="igloo" />
+                TV-14 | 12 SEASONS | {this.props.stream.genre}
               </div>
 
               <div className="about-story" style={{color: '#fff'}}>

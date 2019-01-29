@@ -18,8 +18,7 @@ constructor() {
         this.setState({
             isLoaded: true,
             popular_series: json,
-            seasons: json,
-            seasonone: json
+            seasons: json
         })
     });
   }
