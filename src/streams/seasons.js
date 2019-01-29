@@ -8,8 +8,11 @@ constructor() {
       series: [],
       isLoaded: false,
       selectedSeason: 0
+      
     };
   }
+
+
 
   componentDidMount() {
     fetch('http://localhost:3001/streams')
@@ -22,7 +25,9 @@ constructor() {
     });
   }
 
-  
+  showseason() {
+      
+    }
 
   render() {
 
@@ -61,9 +66,13 @@ constructor() {
       ]
     };
 
+
+    
+
+
       var {isLoaded, series} = this.state;
       if(!isLoaded) {
-        return <div>Loading....</div>
+        return <div className="loader"></div>
       }else {       
           return (
               <div>
@@ -71,7 +80,7 @@ constructor() {
                       {series.map(serie => ( 
                         <div key={serie.id} className="slides">
                           {serie.seasons && serie.seasons.map((season, index) => (
-                            index === this.state.selectedSeason &&
+                            index === this.state.selectedSeason && 
                             <div key={season.name} style={{color: '#000'}}>
                             <Slider {...settings}>
                               {season.episodes && season.episodes.map(episode => (
@@ -82,9 +91,10 @@ constructor() {
                           <h2 className="episode-title">{episode.title}</h2>
                         </a>
                         </div>
-                              ))} </Slider>
+                         ))} </Slider>
                             </div>
                           ))}
+                        
                           
                         </div>
                       ))}

@@ -20,9 +20,7 @@ class StreamShow extends React.Component {
       position: 'relative'
     }
     if (!this.props.stream) {
-      return <div className="loader">
-        
-      </div>
+      return <div className="loader"></div>
       
     }
     return <div>

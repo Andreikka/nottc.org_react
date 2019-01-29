@@ -14,19 +14,52 @@ const options = [
 
 class Dropdown extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      isLoaded: false,
+      options: []
+    };
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:3001/streams")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result.items
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+  }
+
 
   state = {
     selectedOption: options[0],
     isLoading: true,
-    isDisabled: true
+    isDisabled: true,
+    isSearchable: false,
   }
+
   handleChange = (selectedOption) => {
     this.setState({ selectedOption });
     console.log(`Option selected:`, selectedOption);
   }
+  
   render() {
-    const { selectedOption } = this.state;
-
+    const { selectedOption, isSearchable,error, isLoaded,items, isLoading } = this.state;
     return (
         
         <div className="col-md-4">
@@ -36,6 +69,8 @@ class Dropdown extends React.Component {
         onChange={this.handleChange}
         options={options}
         isFocused={false}
+        isLoading={true}
+        isSearchable={isSearchable}
       /> 
 </div>
     );
