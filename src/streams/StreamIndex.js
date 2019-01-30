@@ -41,16 +41,15 @@ class StreamIndex extends Component {
         
         return this.props.streams.map(stream => {
             var slideBg = {
-                backgroundImage: 'url(' + stream.image_poster + ')',
+                backgroundImage: 'linear-gradient(to top, rgba(1,22,39,1), rgba(1, 22, 39,0.3) 50%, rgba(1, 22, 39,.2)), url(' + stream.image_poster + ')',backgroundColor: '#011627',
                 backgroundSize: 'cover',
                 width: '100%',
-                backgroundPosition:'center center',
+                backgroundPosition:'center top',
                 height: '100vh'
               };
               var slideOptions = {
                 paddingTop:'350px'
               };
-             
             return (
                 
                 <div key={stream.id}>
@@ -79,7 +78,6 @@ class StreamIndex extends Component {
               
                     </div>
                 </div>
-                <div class="bg_dark"></div>
                 </div>
             );
         });
@@ -100,7 +98,6 @@ class StreamIndex extends Component {
           arrows={false}
           infinite={false}
           slidesToScroll= {1}
-          initialSlide={1}
         >
             {this.streamsList()}
         </Slider>
@@ -118,7 +115,6 @@ class StreamIndex extends Component {
           focusOnSelect={true}
           infinite={false}
           arrows={true}
-          initialSlide={1}
         >   
         {this.thumbList()}
 
