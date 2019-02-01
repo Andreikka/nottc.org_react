@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import StreamIndex from './StreamIndex';
 
 class NavMenu extends React.Component {
 
@@ -37,12 +38,15 @@ class NavMenu extends React.Component {
                 <div className={boxClass.join(' ')}>
                     <div className="container">
                         <div className="row">
-                            <div className="col-md-6 text-left">
+                            <div className="col-md-6 text-left d-none d-sm-block">
                                 <Link to="/"><img src="/images/nottc-logo-noshadow.png" className="img-fluid" alt=""/></Link>
+                            </div>
+                            <div className="col-md-2 text-left d-block d-sm-none">
+                                <Link to="/"><img src="/images/logo-xs.png" className="img-fluid" alt=""/></Link>
                             </div>
                             <div className="col-md-6 text-right">
                                 <div
-                                    class={Hamburger.join(' ')}
+                                    className={Hamburger.join(' ')}
                                     onClick={this
                                         .toggle
                                         .bind(this)}>

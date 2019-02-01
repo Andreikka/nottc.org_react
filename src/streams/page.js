@@ -1,5 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
+import {Link} from 'react-router-dom';
 
 class PopularSeries extends React.Component {
 
@@ -34,8 +35,8 @@ class PopularSeries extends React.Component {
                     settings: {
                         slidesToShow: 2,
                         slidesToScroll: 1,
-                        infinite: true,
-                        dots: true
+                        infinite: false,
+                        dots: false
                     }
                 }, {
                     breakpoint: 600,
@@ -67,14 +68,10 @@ class PopularSeries extends React.Component {
                         {
                             popular_series.map(item => (
                                 <div key={item.id} className="slides">
-                                    <a className="episode-link" href="/">
-                                        <img className="img-responsive" src={item.image_thumb} alt=""/>
-                                        <h2
-                                            className="episode-title"
-                                            style={{
-                                                position: 'relative'
-                                            }}>{item.title}</h2>
-                                    </a>
+                                    <Link className="episode-link" to={`/streams/show/${item.id}`}>
+                                        <img className="img-fluid" src={item.image_thumb} alt=""/>
+                                        <h2 className="episode-title">{item.title}</h2>
+                                    </Link>
                                 </div>
                             ))
                         }

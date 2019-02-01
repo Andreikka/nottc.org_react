@@ -69,10 +69,6 @@ class Dropdown extends React.Component {
         const {
             selectedOption,
             isSearchable,
-            error,
-            isLoaded,
-            items,
-            isLoading
         } = this.state;
         return (
 

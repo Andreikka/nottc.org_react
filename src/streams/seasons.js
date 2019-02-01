@@ -20,7 +20,9 @@ class Seasons extends React.Component {
             });
     }
 
-    showseason() {}
+    showseason() {
+        
+    }
 
     render() {
 
@@ -74,7 +76,7 @@ class Seasons extends React.Component {
                                     serie.seasons && serie
                                         .seasons
                                         .map((season, index) => (
-                                            index === this.state.selectedSeason && <div
+                                              index === this.state.selectedSeason && <div
                                                 key={season.name}
                                                 style={{
                                                     color: '#000'
@@ -87,7 +89,7 @@ class Seasons extends React.Component {
 
                                                                 <div key={episode.id} className="slides">
                                                                     <a className="episode-link" href="/">
-                                                                        <img className="img-responsive" src={episode.image_thumb} alt=""/>
+                                                                        <img className="img-fluid" src={episode.image_thumb} alt=""/>
                                                                         <h2 className="episode-title">{episode.title}</h2>
                                                                     </a>
                                                                 </div>

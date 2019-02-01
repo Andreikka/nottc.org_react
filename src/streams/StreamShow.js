@@ -6,21 +6,25 @@ import PopularSeries from '../streams/page';
 import Seasons from '../streams/seasons';
 import Dropdown from "./dropdown";
 
+
 class StreamShow extends React.Component {
 
     componentDidMount() {
         this
             .props
             .fetchStream(this.props.match.params.id);
+            setTimeout(() => this.setState({ stream: false }), 1500);
     }
 
     render() {
+
         var col_settings = {
             paddingTop: '380px',
             position: 'relative'
         }
-        if (!this.props.stream) {
-            return <div className="loader"></div>
+        
+        if (!this.props.stream ) {
+            return <div class="loader"></div>
 
         }
         return <div>
@@ -40,7 +44,7 @@ class StreamShow extends React.Component {
                         <div className="container">
                             <NavMenu/>
                             <div className="box-details home-details" style={col_settings}>
-                                <img src={this.props.stream.network_img} alt=""/>
+                                <img className="img-fluid" src={this.props.stream.network_img} alt=""/>
                                 <h2 className="stream_title bold">
                                     {this.props.stream.title}</h2>
                                 <div className="subtitle">
@@ -61,7 +65,7 @@ class StreamShow extends React.Component {
                                     <Dropdown/>
                                 </div>
 
-                                <Seasons/>
+                                    <Seasons />
 
                             </div>
 
@@ -84,7 +88,7 @@ class StreamShow extends React.Component {
                         style={{
                             position: 'relative'
                         }}>
-                        <div class="uppercase bold about-text custom-title">
+                        <div className="uppercase bold about-text custom-title">
                             Clips &amp; Extras
                         </div>
                         <div className="Sliderr">

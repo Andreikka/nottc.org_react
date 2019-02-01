@@ -75,7 +75,6 @@ a.btn-custom-green:hover {
     top: 0;
     height: 100px;
     transition: all 0.2s ease-out;
-    opacity: 0;
     z-index: 3;
 }
 
@@ -814,6 +813,7 @@ a:hover {
     font-size: 20px !important;
     margin-top: 15px;
     font-weight: 600;
+    margin-left: 1px;
 }
 
 .episode-link {
@@ -1022,3 +1022,135 @@ a:hover {
     margin-bottom: 20px;
     margin-left: -35px;
 }
+
+.lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+  }
+  .lds-ellipsis div {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    overflow: auto;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #011627;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  .lds-ellipsis div:nth-child(1) {
+    left: 6px;
+    animation: lds-ellipsis1 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(2) {
+    left: 6px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(3) {
+    left: 26px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(4) {
+    left: 45px;
+    animation: lds-ellipsis3 0.6s infinite;
+  }
+  @keyframes lds-ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes lds-ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes lds-ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(19px, 0);
+    }
+  }
+  
+  #notfound {
+    position: relative;
+    height: 100vh;
+    background: #011627;
+  }
+  
+  #notfound .notfound {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  
+  .notfound {
+    max-width: 410px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .notfound .notfound-404 {
+    height: 280px;
+    position: relative;
+    z-index: -1;
+  }
+  
+  .notfound .notfound-404 h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 230px;
+    margin: 0px;
+    font-weight: 900;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+   background-image: linear-gradient(to right, #E71D35, #FF9F1D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  
+  .notfound h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 0;
+  }
+  
+  .notfound p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    margin-top: 0px;
+  }
+
+  
+  @media only screen and (max-width: 767px) {
+      .notfound .notfound-404 {
+        height: 142px;
+      }
+      .notfound .notfound-404 h1 {
+        font-size: 112px;
+      }
+  }

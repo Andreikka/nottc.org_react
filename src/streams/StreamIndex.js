@@ -10,7 +10,7 @@ class StreamIndex extends Component {
         super(props);
         this.state = {
             nav1: null,
-            nav2: null
+            nav2: null,
         };
     }
 
@@ -30,8 +30,8 @@ class StreamIndex extends Component {
                 return (
 
                     <div key={stream.id}>
-
-                        <img src={stream.image_thumb} alt=""></img>
+                             <img className="img-fluid" src={stream.image_thumb}  alt={stream.image_thumb}/>
+                            {stream.id}
                     </div>
                 );
             });
@@ -70,9 +70,9 @@ class StreamIndex extends Component {
                                         }}
                                         src={stream.network_img}
                                         alt=""/>
-                                    <h2 class="stream_title bold">
+                                    <h2 className="stream_title bold">
                                         {stream.title}</h2>
-                                    <div class="subtitle">
+                                    <div className="subtitle">
                                         <p>{stream.show_slogan}</p>
                                         <p>{stream.show_date}</p>
                                     </div>
@@ -96,51 +96,53 @@ class StreamIndex extends Component {
 
     render() {
 
-        return (
+            return (
 
-            <div className="slide">
+                <div className="slide">
 
-                <NavMenu/>
+                    <NavMenu/>
 
-                <Slider
-                    asNavFor={this.state.nav2}
-                    ref={slider => (this.slider1 = slider)}
-                    arrows={false}
-                    infinite={false}
-                    slidesToScroll={1}>
-                    {this.streamsList()}
-                </Slider>
+                    <Slider
+                        asNavFor={this.state.nav2}
+                        ref={slider => (this.slider1 = slider)}
+                        arrows={false}
+                        infinite={false}
+                        swipeToSlide={true}
+                        slidesToScroll={1}>
+                        {this.streamsList()}
+                    </Slider>
 
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="container">
-                            <div
-                                style={{
-                                    marginTop: '-150px'
-                                }}>
-                                <Slider
-                                    asNavFor={this.state.nav1}
-                                    ref={slider => (this.slider2 = slider)}
-                                    slidesToShow={3}
-                                    slidesToScroll={1}
-                                    swipeToSlide={true}
-                                    focusOnSelect={true}
-                                    infinite={false}
-                                    arrows={true}>
-                                    {this.thumbList()}
+                    <div className="container-fluid">
+                        <div className="row">
+                            <div className="container">
+                                <div
+                                    style={{
+                                        marginTop: '-150px'
+                                    }}>
+                                    <Slider
+                                        asNavFor={this.state.nav1}
+                                        ref={slider => (this.slider2 = slider)}
+                                        slidesToShow={3}
+                                        slidesToScroll={1}
+                                        swipeToSlide={true}
+                                        focusOnSelect={true}
+                                        
+                                        infinite={false}
+                                        arrows={true}>
+                                        {this.thumbList()}
 
-                                </Slider>
+                                    </Slider>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
-            </div>
-
-        )
+            )
+        }
     }
 
-}
 
 const mapStateToProps = state => {
     return {

@@ -17,8 +17,8 @@ class PopularSerials extends Component {
                        
            
           <a class="episode-link" href="/" tabindex="0">
-                          <img class="img-responsive" src={popular_serial.image_thumb} alt="" />
-                          <h2 class="episode-title" style={{position: 'relative'}}>{popular_serial.title}</h2>
+                          <img className="img-fluid" src={popular_serial.image_thumb} alt="" />
+                          <h2 className="episode-title" style={{marginLeft: '1px'}}>{popular_serial.title}</h2>
                         </a>
                        
                 </div>
